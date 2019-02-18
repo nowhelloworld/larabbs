@@ -28,21 +28,6 @@ class EnsureEmailIsVerified
                         ? abort(403, 'Your email address is not verified.')
                         : redirect()->route('verification.notice');
         }
-        // if ($request->user()) {
-        //     return $request->expectsJson()
-        //                 ? abort(403, 'Your email address is not verified.')
-        //                 : redirect()->route('verification.notice');
-        // }
-        // if (! $request->user()->hasVerifiedEmail()) {
-        //     return $request->expectsJson()
-        //                 ? abort(403, 'Your email address is not verified.')
-        //                 : redirect()->route('verification.notice');
-        // }
-        // if (! $request->is('email/*', 'logout')) {
-        //     return $request->expectsJson()
-        //                 ? abort(403, 'Your email address is not verified.')
-        //                 : redirect()->route('verification.notice');
-        // }
 
         return $next($request);
     }
