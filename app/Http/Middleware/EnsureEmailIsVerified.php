@@ -19,30 +19,30 @@ class EnsureEmailIsVerified
         // 1. 如果用户已经登录
         // 2. 并且还未认证 Email
         // 3. 并且访问的不是 email 验证相关 URL 或者退出的 URL。
-        // if ($request->user() &&
-        //     ! $request->user()->hasVerifiedEmail() &&
-        //     ! $request->is('email/*', 'logout')) {
+        if ($request->user() &&
+            ! $request->user()->hasVerifiedEmail() &&
+            ! $request->is('email/*', 'logout')) {
 
-        //     // 根据客户端返回对应的内容
+            // 根据客户端返回对应的内容
+            return $request->expectsJson()
+                        ? abort(403, 'Your email address is not verified.')
+                        : redirect()->route('verification.notice');
+        }
+        // if ($request->user()) {
         //     return $request->expectsJson()
         //                 ? abort(403, 'Your email address is not verified.')
         //                 : redirect()->route('verification.notice');
         // }
-        if ($request->user()) {
-            return $request->expectsJson()
-                        ? abort(403, 'Your email address is not verified.')
-                        : redirect()->route('verification.notice');
-        }
-        if (! $request->user()->hasVerifiedEmail()) {
-            return $request->expectsJson()
-                        ? abort(403, 'Your email address is not verified.')
-                        : redirect()->route('verification.notice');
-        }
-        if (! $request->is('email/*', 'logout')) {
-            return $request->expectsJson()
-                        ? abort(403, 'Your email address is not verified.')
-                        : redirect()->route('verification.notice');
-        }
+        // if (! $request->user()->hasVerifiedEmail()) {
+        //     return $request->expectsJson()
+        //                 ? abort(403, 'Your email address is not verified.')
+        //                 : redirect()->route('verification.notice');
+        // }
+        // if (! $request->is('email/*', 'logout')) {
+        //     return $request->expectsJson()
+        //                 ? abort(403, 'Your email address is not verified.')
+        //                 : redirect()->route('verification.notice');
+        // }
 
         return $next($request);
     }
