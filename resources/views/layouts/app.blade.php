@@ -14,6 +14,9 @@
   <!-- Styles -->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
+    <!-- Simditor css的锚点 -->
+    @yield('styles')
+
 </head>
 
 <body>
@@ -34,6 +37,10 @@
 
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}"></script>
+
+    <!-- Simditor js的锚点 -->
+    @yield('scripts')
+
 </body>
 
 </html>
