@@ -69,6 +69,7 @@
 
     <script>
         $(document).ready(function() {
+            Simditor.locale = 'zh-CN';
             var editor = new Simditor({
                 textarea: $('#editor'),
                 upload: {
