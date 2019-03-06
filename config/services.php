@@ -40,4 +40,10 @@ return [
         ],
     ],
 
+    // 百度翻译接口 邮箱phpfriend_xu@163.com 电话15192790596
+    'baidu_translate' => [
+        'appid' => env('BAIDU_TRANSLATE_APPID'),
+        'key'   => env('BAIDU_TRANSLATE_KEY'),
+    ],
+
 ];
