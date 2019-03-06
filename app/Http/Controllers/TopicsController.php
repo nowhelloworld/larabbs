@@ -23,7 +23,7 @@ class TopicsController extends Controller
         return view('topics.index', compact('topics'));
 	}
 
-    public function show(Topic $topic)
+    public function show(Request $request, Topic $topic)
     {
         // URL 矫正
         // ! empty($topic->slug) 如果话题的 Slug 字段不为空
