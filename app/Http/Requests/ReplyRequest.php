@@ -6,6 +6,11 @@ class ReplyRequest extends Request
 {
     public function rules()
     {
+
+        return [
+            'content' => 'required|min:2',
+        ];
+
         switch($this->method())
         {
             // CREATE
@@ -36,6 +41,7 @@ class ReplyRequest extends Request
     {
         return [
             // Validation messages
+            'content.required' => '写点啥吧。',
         ];
     }
 }
