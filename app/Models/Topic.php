@@ -47,4 +47,9 @@ class Topic extends Model
         return route('topics.show', array_merge([$this->id, $this->slug], $params));
     }
 
+    // 对 Reply回复 的所属关系
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }
