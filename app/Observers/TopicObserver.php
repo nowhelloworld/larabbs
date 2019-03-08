@@ -41,4 +41,11 @@ class TopicObserver
             dispatch(new TranslateSlug($topic));
         }
     }
+
+    // 回复是针对话题而存在的。当话题被删除的时候，数据库里的回复信息没有存在的价值
+    public function deleted(Topic $topic)
+    {
+        // 模型监听器中，数据库操作需避免再次触发 Eloquent 事件，以免造成联动逻辑冲突，使用 DB 类进行操作
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
+    }
 }
