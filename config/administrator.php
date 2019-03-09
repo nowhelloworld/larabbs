@@ -42,15 +42,6 @@ return array(
             'roles',
             'permissions',
         ],
-        '内容管理' => [
-            'categories',
-            'topics',
-            'replies',
-        ],
-        '站点管理' => [
-            'settings.site',
-            'links',
-        ],
     ],
 
     /*
@@ -82,7 +73,7 @@ return array(
     'back_to_site_path' => '/',
 
     // 当选项 `permission` 权限检测不通过时，会重定向用户到此处设置的路径
-    'login_path' => 'permission-denied',
+    'login_path' => 'login',
 
     // 允许在登录成功后使用 Session::get('redirect') 将用户重定向到原本想要访问的后台页面
     'login_redirect_key' => 'redirect',
