@@ -28,7 +28,7 @@ class TopicsController extends Controller
         return view('topics.index', compact('topics', 'active_users'));
 	}
 
-    public function show(Request $request, Topic $topic)
+    public function show(Request $request, Topic $topic, User $user)
     {
         // URL 矫正
         // ! empty($topic->slug) 如果话题的 Slug 字段不为空
