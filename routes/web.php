@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'PagesController@root')->name('root');
+Route::get('/', 'TopicsController@index')->name('root');
 
 // Auth::routes();
 // { Auth::routes 可以替换掉以下，是它们的简写
@@ -57,3 +57,4 @@ Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 
 Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
+
