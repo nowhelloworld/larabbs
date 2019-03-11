@@ -16,6 +16,8 @@
             <li class="nav-item {{ category_nav_active(2) }}"><a class="nav-link" href="{{ route('categories.show', 2) }}">教程</a></li>
             <li class="nav-item {{ category_nav_active(3) }}"><a class="nav-link" href="{{ route('categories.show', 3) }}">问答</a></li>
             <li class="nav-item {{ category_nav_active(4) }}"><a class="nav-link" href="{{ route('categories.show', 4) }}">公告</a></li>
+
+            <li class="nav-item {{ category_nav_active(5) }}"><a class="nav-link" href="{{ route('categories.show', 5) }}">备注</a></li>
         </ul>
 
       <!-- Right Side Of Navbar -->
