@@ -20,7 +20,7 @@ class VerificationCodesController extends Controller
 
             try {
                 $result = $easySms->send($phone, [
-                    'content'  =>  "【Lbbs社区】您的验证码是{$code}。"
+                    'content'  =>  "【个人学习php用】您的验证码是{$code}。"
                 ]);
             } catch (\Overtrue\EasySms\Exceptions\NoGatewayAvailableException $exception) {
                 $message = $exception->getException('yunpian')->getMessage();
