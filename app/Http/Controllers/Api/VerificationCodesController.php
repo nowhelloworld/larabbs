@@ -20,7 +20,7 @@ class VerificationCodesController extends Controller
 
             try {
                 $result = $easySms->send($phone, [
-                    'content'  =>  "【Lbbs社区】您的验证码是{$code}。如非本人操作，请忽略本短信"
+                    'content'  =>  "【个人学习php用】您的验证码是{$code}。如非本人操作，请忽略本短信"
                 ]);
             } catch (\Overtrue\EasySms\Exceptions\NoGatewayAvailableException $exception) {
                 $message = $exception->getException('yunpian')->getMessage();
@@ -28,11 +28,14 @@ class VerificationCodesController extends Controller
             }
         }
 
+        // 发送成功后生成一个 key 在缓存中,存储对应的手机以及验证码
         $key = 'verificationCode_'.str_random(15);
+
         $expiredAt = now()->addMinutes(10);
         // 缓存验证码 10分钟过期。
         \Cache::put($key, ['phone' => $phone, 'code' => $code], $expiredAt);
 
+        // 将 key 以及 过期时间 返回给客户端
         return $this->response->array([
             'key' => $key,
             'expired_at' => $expiredAt->toDateTimeString(),
