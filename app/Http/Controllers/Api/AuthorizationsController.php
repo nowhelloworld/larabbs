@@ -10,6 +10,7 @@ class AuthorizationsController extends Controller
 {
     public function socialStore($type, SocialAuthorizationRequest $request)
     {
+
         if (!in_array($type, ['weixin'])) {
             return $this->response->errorBadRequest();
         }
